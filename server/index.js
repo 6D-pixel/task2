@@ -70,6 +70,7 @@ app.post("/api/login", async (req, res) => {
 
 //put user details
 const putBody = zod.object({
+  email: zod.string().email(),
   age: zod.number().optional(),
   dob: zod.string().optional(),
   contact: zod.string().optional(),
@@ -89,14 +90,15 @@ app.put("/api/update/userinfo", async (req, res) => {
 //get user details
 app.get("/api/userinfo", async (req, res) => {
   //might need to change body->query
-  const user = await User_mdb.findOne({ email: req.body.email }).select(
+  const user = await User_mdb.findOne({ email: req.query.email }).select(
     "age dob mobile"
   );
   //not required
   if (!user) {
     res.status(411).json({ msg: "user not found" });
   }
-  res.json({ user });
+  console.log(user);
+  res.json(user);
 });
 
 app.listen(3000, () => {

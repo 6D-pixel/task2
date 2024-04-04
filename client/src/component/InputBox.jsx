@@ -1,10 +1,10 @@
 import React from "react";
 
-const InputBox = ({ onChange, label, placeholder,type }) => {
+const InputBox = ({ onChange, label, placeholder,type,value }) => {
   return (
     <>
       <div>{label}</div>
-      <input type={type} placeholder={placeholder} onChange={onChange} />
+      <input type={type} placeholder={placeholder} onChange={onChange} value={value} />
     </>
   );
 };
