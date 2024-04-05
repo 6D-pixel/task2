@@ -13,7 +13,12 @@ function Profile() {
   useEffect(() => {
     const fetchUser = async () => {
       const res = await axios.get(
-        `http://localhost:3000/api/userinfo?email=${email}`
+        `http://localhost:3000/api/userinfo?email=${email}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
       );
       setAge(res.data.age);
       setDob(res.data.dob);
@@ -51,12 +56,20 @@ function Profile() {
           label="Update"
           onClick={async () => {
             try {
-              await axios.put(`http://localhost:3000/api/update/userinfo`, {
-                email,
-                age,
-                dob,
-                contact,
-              });
+              await axios.put(
+                `http://localhost:3000/api/update/userinfo`,
+                {
+                  email,
+                  age,
+                  dob,
+                  contact,
+                },
+                {
+                  headers: {
+                    Authorization: `Bearer ${localStorage.getItem("token")}`,
+                  },
+                }
+              );
             } catch (err) {
               if (err.response) {
                 alert(err.response.data.msg);

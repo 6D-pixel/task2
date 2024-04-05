@@ -32,6 +32,7 @@ const Login = () => {
                 email,
                 password,
               });
+              localStorage.setItem("token", res.data.token);
               navigate("/profile?email=" + email);
             } catch (err) {
               if (err.response) {
