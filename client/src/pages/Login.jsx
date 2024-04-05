@@ -3,6 +3,7 @@ import InputBox from "../component/InputBox";
 import Button from "../component/Button";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { BottomWarning } from "../component/BottomWarning";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -44,6 +45,11 @@ const Login = () => {
               }
             }
           }}
+        />
+        <BottomWarning
+          label="Don't have an account? "
+          buttonText="register"
+          to="/register"
         />
       </div>
     </section>

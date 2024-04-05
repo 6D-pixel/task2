@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import InputBox from "../component/InputBox";
 import Button from "../component/Button";
 import { useSearchParams } from "react-router-dom";
 import axios from "axios";
+import Logout from "../component/Logout.";
 function Profile() {
   const [age, setAge] = useState(0);
   const [dob, setDob] = useState("");
@@ -81,6 +82,7 @@ function Profile() {
             }
           }}
         />
+        <Logout/>
       </div>
     </section>
   );

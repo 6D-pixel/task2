@@ -1,8 +1,7 @@
-import React from 'react'
 
 const Button = ({onClick, label}) => {
   return (
-    <button onClick={onClick} type='button' >{label}</button>
+    <button style={{borderRadius:'5px', margin:'10px', borderColor:'black'}} onClick={onClick} type='button' >{label}</button>
   )
 }
 

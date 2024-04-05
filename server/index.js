@@ -70,7 +70,7 @@ app.post("/api/login", async (req, res) => {
   }
   const emailId = req.body.email;
   const token = jwt.sign({ emailId }, process.env.JWT_SECRET);
-  res.status(200).json({ token:token, msg: "user found" });
+  res.status(200).json({ token: token, msg: "user found" });
 });
 
 //put user details
@@ -80,7 +80,7 @@ const putBody = zod.object({
   dob: zod.string().optional(),
   contact: zod.string().optional(),
 });
-app.put("/api/update/userinfo",verify,async (req, res) => {
+app.put("/api/update/userinfo", verify, async (req, res) => {
   const { success } = putBody.safeParse(req.body);
   if (!success) {
     res.status(411).json({ msg: "input invalid" });
@@ -93,7 +93,7 @@ app.put("/api/update/userinfo",verify,async (req, res) => {
 });
 
 //get user details
-app.get("/api/userinfo",verify,async (req, res) => {
+app.get("/api/userinfo", verify, async (req, res) => {
   const user = await User_mdb.findOne({ email: req.query.email }).select(
     "age dob mobile"
   );
