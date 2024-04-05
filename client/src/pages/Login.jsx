@@ -30,7 +30,7 @@ const Login = () => {
           onClick={async () => {
             try {
               const res = await axios.post(
-                `${process.env.VITE_VERCEL_API}/login`,
+                `https://task2-p3yq.onrender.com/api/login`,
                 {
                   email,
                   password,

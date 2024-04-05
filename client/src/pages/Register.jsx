@@ -42,7 +42,7 @@ function Register() {
           onClick={async () => {
             try {
               const response = await axios.post(
-                `${process.env.VITE_VERCEL_API}/register`,
+                `https://task2-p3yq.onrender.com/api/register`,
                 {
                   name,
                   email,
