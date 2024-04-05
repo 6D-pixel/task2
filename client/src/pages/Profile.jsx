@@ -14,7 +14,7 @@ function Profile() {
   useEffect(() => {
     const fetchUser = async () => {
       const res = await axios.get(
-        `http://localhost:3000/api/userinfo?email=${email}`,
+        `${import.meta.env.VITE_API}/userinfo?email=${email}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -58,7 +58,7 @@ function Profile() {
           onClick={async () => {
             try {
               await axios.put(
-                `http://localhost:3000/api/update/userinfo`,
+                `${import.meta.env.VITE_API}/update/userinfo`,
                 {
                   email,
                   age,

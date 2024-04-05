@@ -11,7 +11,7 @@ function Register() {
   const navigate = useNavigate();
   return (
     <section>
-      <h2>Register</h2>
+      <h2 >Register</h2>
       <InputBox
         label="Name"
         type="text"
@@ -42,7 +42,7 @@ function Register() {
           onClick={async () => {
             try {
               const response = await axios.post(
-                "http://localhost:3000/api/register",
+                `${import.meta.env.VITE_API}/register`,
                 {
                   name,
                   email,
