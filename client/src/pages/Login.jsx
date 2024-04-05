@@ -30,7 +30,7 @@ const Login = () => {
           onClick={async () => {
             try {
               const res = await axios.post(
-                `${process.env.VITE_API}/login`,
+                `${process.env.VITE_VERCEL_API}/login`,
                 {
                   email,
                   password,

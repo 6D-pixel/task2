@@ -14,7 +14,7 @@ function Profile() {
   useEffect(() => {
     const fetchUser = async () => {
       const res = await axios.get(
-        `${process.env.VITE_API}/userinfo?email=${email}`,
+        `${process.env.VITE_VERCEL_API}/userinfo?email=${email}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -58,7 +58,7 @@ function Profile() {
           onClick={async () => {
             try {
               await axios.put(
-                `${process.env.VITE_API}/update/userinfo`,
+                `${process.env.VITE_VERCEL_API}/update/userinfo`,
                 {
                   email,
                   age,
