@@ -42,7 +42,7 @@ function Register() {
           onClick={async () => {
             try {
               const response = await axios.post(
-                `${import.meta.env.VITE_API}/register`,
+                `${process.env.VITE_API}/register`,
                 {
                   name,
                   email,
